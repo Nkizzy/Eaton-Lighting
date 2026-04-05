@@ -1,0 +1,38 @@
+---
+description: Eaton LightScaping sample site — stack, business facts, and maintenance policy for this repo
+alwaysApply: true
+---
+
+# Eaton LightScaping project
+
+## Stack
+
+- **Vite 8** — dev server and production build (`npm run dev`, `npm run build`).
+- **Local dev**: `npm run dev` serves the site with **hot module reload** — changes to [`index.html`](index.html), [`src/style.css`](src/style.css), and [`src/main.js`](src/main.js) show up in the browser **without** running `npm run build`. Use **`npm run build`** when you need the **`dist/`** output (production bundle, GitHub Pages, or `npm run preview`).
+- **Vanilla** single-page site: [`index.html`](index.html) (all sections), [`src/main.js`](src/main.js) (mobile nav), [`src/style.css`](src/style.css) (global styles).
+- **Static assets** in [`public/`](public/) (e.g. favicon).
+- **GitHub Pages**: production asset base is set in [`vite.config.js`](vite.config.js) (currently `/Eaton-Lighting/`). It must match the GitHub **repository name** used for Pages. Remote: [github.com/Nkizzy/Eaton-Lighting](https://github.com/Nkizzy/Eaton-Lighting).
+
+## Canonical business facts (update when the client changes)
+
+- **Brand**: Eaton LightScaping
+- **Phone**: (518) 429-6149 — `tel:+15184296149`
+- **Email**: Eatonlightscaping@gmail.com
+- **Facebook**: `https://www.facebook.com/profile.php?id=100095475330053` — contact section uses a **link card** (no Page plugin iframe) to avoid noisy third-party console errors.
+- **Sample service area copy**: Capital Region / 518 (map embed is demo-only)
+
+## Conventions
+
+- Prefer updating **both** `index.html` and `src/style.css` when changing hero/section imagery (hero background lives in CSS).
+- Keep **accessibility**: skip link, nav `aria-*`, meaningful `alt` on images, descriptive `title` on the map iframe. External Unsplash images use `referrerpolicy="no-referrer"` where applicable.
+- Imagery is **placeholder** (Unsplash); client may supply real photos later.
+
+## Mobile
+
+- The site must **work well on mobile**: test layouts at narrow widths (e.g. ≤390px), keep tap targets adequate (`--tap-min`), and ensure the mobile nav, grids, and embeds do not overflow horizontally.
+- **Gallery “compact” mode** uses `max-width: 56rem` — the same band as the sticky nav hamburger — so resizing a desktop window until the menu collapses matches the **two-column, caption-hidden** gallery used on phones.
+- When changing layout or new sections, verify **small screens** alongside desktop; adjust breakpoints in [`src/style.css`](src/style.css) if something breaks.
+
+## Keep this rule in sync
+
+When you change **deploy base path**, **contact or social URLs**, **brand name**, **documented stack**, or **project conventions**, **update this `.mdc` file in the same change** so it stays accurate for future sessions.
