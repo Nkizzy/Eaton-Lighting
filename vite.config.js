@@ -1,7 +1,15 @@
 import { defineConfig } from 'vite'
 
-// Production: GitHub Pages project URL is https://<user>.github.io/<repo>/
-// If you publish from a user-site repo (e.g. username.github.io) with site at domain root, set both branches to use base: '/'.
-export default defineConfig(({ command }) => ({
-  base: command === 'build' ? '/CurbAppealLawnCare/' : '/',
-}))
+// Production base:
+// - Cloudflare Pages serves at the hostname root → base must be '/'. CF sets CF_PAGES=1 during build.
+// - GitHub project Pages uses https://<user>.github.io/<repo>/ → base '/<repo>/'.
+// Override anytime: VITE_BASE_PATH=/custom/
+export default defineConfig(({ command }) => {
+  const prodBase =
+    process.env.VITE_BASE_PATH ??
+    (process.env.CF_PAGES === '1' ? '/' : '/CurbAppealLawnCare/')
+
+  return {
+    base: command === 'build' ? prodBase : '/',
+  }
+})
