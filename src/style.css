@@ -482,8 +482,8 @@ a:hover {
 /* Hero: tighter on small screens (pre-center mobile layout) */
 @media (max-width: 59.99rem) {
   .hero {
-    min-height: min(62dvh, 28rem);
-    padding: clamp(1.5rem, 4vw, 2rem) var(--space-md);
+    min-height: min(78dvh, 38rem);
+    padding: clamp(1.75rem, 5vw, 2.75rem) var(--space-md);
     align-items: flex-start;
     justify-content: flex-start;
     text-align: left;
