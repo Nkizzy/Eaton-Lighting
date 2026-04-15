@@ -1,0 +1,39 @@
+---
+description: Curb Appeal Lawn Care & Maintenance sample site — stack, business facts, and maintenance policy for this repo
+alwaysApply: true
+---
+
+# Curb Appeal Lawn Care & Maintenance project
+
+## Stack
+
+- **Vite 8** — dev server and production build (`npm run dev`, `npm run build`).
+- **Local dev**: `npm run dev` serves the site with **hot module reload** — changes to [`index.html`](index.html), [`src/style.css`](src/style.css), and [`src/main.js`](src/main.js) show up in the browser **without** running `npm run build`. Use **`npm run build`** when you need the **`dist/`** output (production bundle, GitHub Pages, or `npm run preview`).
+- **Vanilla** single-page site: [`index.html`](index.html) (all sections), [`src/main.js`](src/main.js) (mobile nav), [`src/style.css`](src/style.css) (global styles).
+- **Static assets** in [`public/`](public/) and [`src/assets/`](src/assets/) (logo in `src/assets/CurbAppealLogo.jpg`).
+- **GitHub Pages**: production asset base is set in [`vite.config.js`](vite.config.js) (currently `/CurbAppealLawnCare/`). It must match the GitHub **repository name** used for Pages (see [github.com/Nkizzy/CurbAppealLawnCare](https://github.com/Nkizzy/CurbAppealLawnCare)). Site URL: `https://<user>.github.io/CurbAppealLawnCare/`.
+
+## Canonical business facts (update when the client changes)
+
+- **Brand**: Curb Appeal Lawn Care & Maintenance
+- **Phone**: (585) 505-7421 — `tel:+15855057421`
+- **Email**: curbappeallawncare2024@gmail.com — `mailto:curbappeallawncare2024@gmail.com`
+- **Service area**: Greater Rochester area (placeholder until exact address is provided)
+- **Core services**: lawn mowing and edging, trimming/pruning, mulch and bed refresh, spring/fall cleanup, shrub/hedge maintenance, general lawn upkeep
+
+## Conventions
+
+- Keep section structure stable: hero, services, gallery, service area, and contact.
+- Keep **accessibility**: skip link, nav `aria-*`, meaningful `alt` on images, descriptive `title` on the map iframe.
+- Hero background image lives in CSS; if changing hero photography, update both [`index.html`](index.html) and [`src/style.css`](src/style.css) where needed.
+- Placeholder imagery is acceptable until real project photos are available.
+
+## Mobile
+
+- The site must **work well on mobile**: test layouts at narrow widths (e.g. <=390px), keep tap targets adequate (`--tap-min`), and ensure the mobile nav, grids, and embeds do not overflow horizontally.
+- Keep CTA buttons highly visible in mobile hero.
+- Gallery “compact” mode and mobile nav breakpoint behavior should stay aligned with existing CSS breakpoints unless intentionally changed.
+
+## Keep this rule in sync
+
+When you change **deploy base path**, **contact/location details**, **brand name**, **documented stack**, or **project conventions**, **update this `.mdc` file in the same change** so it stays accurate for future sessions.

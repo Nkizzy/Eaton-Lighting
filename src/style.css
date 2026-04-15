@@ -1,18 +1,18 @@
 :root {
-  --color-bg: #e8e6e2;
-  --color-surface: #f4f2ee;
-  --color-elevated: #faf9f6;
-  --color-text: #2c2a28;
-  --color-text-muted: #5f5c57;
-  --color-border: #c9c4bc;
-  --color-border-strong: #8a847a;
-  --color-accent: #3f4f46;
-  --color-accent-hover: #2d3a33;
-  --color-ink: #1a1f1c;
-  --color-hero-fg: #eceae6;
-  --color-hero-fg-muted: #b8b5ae;
-  --font-sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-display: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --color-bg: #e8f2e2;
+  --color-surface: #f2f8ee;
+  --color-elevated: #fbfdf9;
+  --color-text: #203125;
+  --color-text-muted: #4e6652;
+  --color-border: #b4cdb4;
+  --color-border-strong: #5a845f;
+  --color-accent: #28703a;
+  --color-accent-hover: #1f5b2e;
+  --color-ink: #183120;
+  --color-hero-fg: #f1f7ec;
+  --color-hero-fg-muted: #c8d8c5;
+  --font-sans: 'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Sora', 'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --nav-height: 4.25rem;
   --space-xs: 0.5rem;
   --space-sm: 1rem;
@@ -49,7 +49,7 @@ body {
   line-height: 1.62;
   color: var(--color-text);
   background-color: var(--color-bg);
-  background-image: linear-gradient(180deg, #e4e2dd 0%, var(--color-bg) 18rem, var(--color-bg) 100%);
+  background-image: linear-gradient(180deg, #dce8d6 0%, var(--color-bg) 18rem, var(--color-bg) 100%);
   overflow-x: hidden;
 }
 
@@ -137,12 +137,32 @@ a:hover {
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 1.125rem;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   color: var(--color-ink);
   text-decoration: none;
   min-height: var(--tap-min);
   display: inline-flex;
   align-items: center;
+  gap: 0.6rem;
+}
+
+.site-logo__img {
+  width: 2.05rem;
+  height: 2.05rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(24, 38, 26, 0.25);
+}
+
+.site-logo span {
+  line-height: 1.15;
+}
+
+@media (max-width: 35rem) {
+  .site-logo {
+    font-size: 0.95rem;
+    max-width: min(14.5rem, 74vw);
+  }
 }
 
 .site-logo:hover {
@@ -324,10 +344,12 @@ a:hover {
   position: relative;
   isolation: isolate;
   color: #f5f5f4;
-  padding: clamp(2.5rem, 6vw, 4rem) var(--space-md) clamp(3rem, 8vw, 5rem);
-  min-height: min(92dvh, 52rem);
+  padding: clamp(2.25rem, 5vw, 3.25rem) var(--space-md);
+  min-height: min(72dvh, 38rem);
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   overflow: hidden;
 }
 
@@ -343,7 +365,7 @@ a:hover {
       rgba(26, 31, 28, 0.45) 68%,
       rgba(45, 48, 46, 0.25) 100%
     ),
-    url('https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=2000&q=80&auto=format&fit=crop');
+    url('https://loremflickr.com/2000/1300/lawn,grass,landscaping?lock=401');
   background-size: cover;
   background-position: 50% 58%;
 }
@@ -354,76 +376,12 @@ a:hover {
   max-width: var(--max-width);
   margin: 0 auto;
   width: 100%;
-  display: grid;
-  gap: clamp(2rem, 5vw, 3.5rem);
-  align-items: center;
-}
-
-@media (min-width: 60rem) {
-  .hero__inner {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
-    gap: clamp(2rem, 4vw, 4rem);
-  }
 }
 
 .hero__copy {
-  max-width: 36rem;
-}
-
-.hero__showcase {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
-.hero__showcase-frame {
-  border-radius: var(--radius-sharp);
-  overflow: hidden;
-  border: 1px solid rgba(236, 234, 230, 0.35);
-  outline: 1px solid rgba(26, 31, 28, 0.6);
-  outline-offset: -1px;
-  background: #0d0f0e;
-}
-
-.hero__showcase-frame--main {
-  border-left: 4px solid var(--color-hero-fg-muted);
-}
-
-.hero__showcase-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
-  background: var(--color-ink);
-}
-
-.hero__showcase-frame--thumb {
-  border: none;
-  outline: none;
-}
-
-.hero__showcase-frame--thumb:nth-child(2) {
-  border-left: 1px solid rgba(236, 234, 230, 0.2);
-}
-
-.hero__showcase-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.hero__showcase-frame--main img {
-  aspect-ratio: 11 / 8;
-}
-
-.hero__showcase-frame--thumb img {
-  aspect-ratio: 5 / 3;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero__showcase-frame img {
-    transition: none;
-  }
+  max-width: 40rem;
+  margin-inline: auto;
+  text-align: center;
 }
 
 .eyebrow {
@@ -436,21 +394,28 @@ a:hover {
 }
 
 .hero__title {
-  font-size: clamp(2rem, 1.35rem + 2.5vw, 3.15rem);
+  font-size: clamp(2.1rem, 1.35rem + 2.8vw, 3.1rem);
+  font-weight: 700;
   max-width: 22ch;
-  letter-spacing: -0.02em;
+  margin-left: auto;
+  margin-right: auto;
+  letter-spacing: -0.03em;
   color: var(--color-hero-fg);
   margin-bottom: var(--space-md);
   line-height: 1.08;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.5),
+    0 4px 24px rgba(0, 0, 0, 0.35);
 }
 
 .hero__lead {
-  font-size: clamp(1.025rem, 0.95rem + 0.35vw, 1.2rem);
-  max-width: 38rem;
+  font-size: clamp(1.05rem, 0.95rem + 0.45vw, 1.2rem);
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
   color: var(--color-hero-fg-muted);
   margin-bottom: var(--space-lg);
-  line-height: 1.65;
+  line-height: 1.55;
 }
 
 .hero__lead strong {
@@ -462,26 +427,16 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
+  justify-content: center;
+  align-items: stretch;
 }
 
-.hero__hint {
-  margin: var(--space-md) 0 0;
-  font-size: 0.9375rem;
-}
-
-.hero__hint a {
-  color: var(--color-hero-fg);
-  font-weight: 600;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(236, 234, 230, 0.45);
-  min-height: var(--tap-min);
-  display: inline-flex;
-  align-items: center;
-}
-
-.hero__hint a:hover {
-  color: #fff;
-  border-bottom-color: #fff;
+.hero__actions .btn {
+  min-height: 3.125rem;
+  padding: 0.95rem 1.75rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 @media (min-width: 36rem) {
@@ -489,20 +444,53 @@ a:hover {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
+  }
+
+  .hero__actions .btn {
+    min-width: 11.5rem;
   }
 }
 
-/* —— Hero: mobile / tablet only (single column; desktop 60rem+ unchanged) —— */
-@media (max-width: 59.99rem) {
+/* Hero: desktop — use most of the viewport height and wider copy */
+@media (min-width: 60rem) {
   .hero {
-    min-height: min(88dvh, 44rem);
-    padding: clamp(1.75rem, 5vw, 2.5rem) var(--space-md) clamp(2.25rem, 7vw, 3.25rem);
-    align-items: flex-start;
+    min-height: max(40rem, calc(100dvh - var(--nav-height)));
+    padding: clamp(3rem, 8vh, 5.5rem) var(--space-md);
+  }
+
+  .hero__copy {
+    max-width: min(52rem, 92vw);
+  }
+
+  .hero__title {
+    font-size: clamp(2.35rem, 1.5rem + 3.2vw, 3.45rem);
+    max-width: 28ch;
+  }
+
+  .hero__lead {
+    font-size: clamp(1.1rem, 1rem + 0.5vw, 1.3rem);
+    max-width: 42rem;
+    margin-bottom: clamp(1.75rem, 4vh, 2.5rem);
   }
 
   .hero__media {
     background-position: 50% 45%;
-    /* Softer scrim so the photo reads through (still readable type on the left) */
+  }
+}
+
+/* Hero: tighter on small screens (pre-center mobile layout) */
+@media (max-width: 59.99rem) {
+  .hero {
+    min-height: min(62dvh, 28rem);
+    padding: clamp(1.5rem, 4vw, 2rem) var(--space-md);
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .hero__media {
+    background-position: 50% 45%;
     background-image: linear-gradient(
         105deg,
         rgba(26, 31, 28, 0.78) 0%,
@@ -510,17 +498,14 @@ a:hover {
         rgba(26, 31, 28, 0.36) 68%,
         rgba(45, 48, 46, 0.22) 100%
       ),
-      url('https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=2000&q=80&auto=format&fit=crop');
-  }
-
-  .hero__inner {
-    gap: clamp(1.5rem, 5vw, 2.25rem);
+      url('https://loremflickr.com/2000/1300/lawn,grass,landscaping?lock=401');
   }
 
   .hero__copy {
     max-width: none;
-    padding: var(--space-md) var(--space-md) var(--space-md) calc(var(--space-md) + 6px);
     margin-inline: 0;
+    text-align: left;
+    padding: var(--space-md) var(--space-md) var(--space-md) calc(var(--space-md) + 6px);
     border-radius: var(--radius-sharp);
     background: rgba(13, 15, 14, 0.48);
     border: 1px solid rgba(236, 234, 230, 0.2);
@@ -528,28 +513,21 @@ a:hover {
     box-shadow: none;
   }
 
-  .hero__copy .eyebrow {
-    display: block;
-    font-size: 0.68rem;
-    letter-spacing: 0.16em;
-    padding: 0;
-    margin-bottom: var(--space-md);
-    border: none;
-    background: none;
-    color: var(--color-hero-fg-muted);
-  }
-
   .hero__title {
-    font-size: clamp(1.85rem, 6.5vw + 0.5rem, 2.45rem);
+    font-size: clamp(1.65rem, 5.5vw + 0.45rem, 2.1rem);
     max-width: none;
-    line-height: 1.07;
-    margin-bottom: var(--space-md);
+    margin-left: 0;
+    margin-right: 0;
+    line-height: 1.08;
+    margin-bottom: var(--space-sm);
     text-wrap: balance;
   }
 
   .hero__lead {
-    font-size: clamp(1rem, 2.8vw + 0.65rem, 1.08rem);
-    line-height: 1.62;
+    font-size: clamp(0.98rem, 2.5vw + 0.6rem, 1.05rem);
+    margin-left: 0;
+    margin-right: 0;
+    line-height: 1.55;
     margin-bottom: var(--space-md);
     color: #d6d3d1;
   }
@@ -557,39 +535,21 @@ a:hover {
   .hero__actions {
     flex-direction: column;
     align-items: stretch;
+    justify-content: flex-start;
     gap: 0.65rem;
-    margin-top: var(--space-sm);
+    margin-top: 0;
   }
 
   .hero__actions .btn {
     width: 100%;
     max-width: 100%;
-    padding-top: 0.9rem;
-    padding-bottom: 0.9rem;
+    padding: 0.9rem 1.25rem;
+    min-height: var(--tap-min);
     border-radius: var(--radius-sharp);
     font-size: 1.02rem;
-  }
-
-  .hero__hint {
-    margin-top: var(--space-md);
-    text-align: left;
-  }
-
-  .hero__hint a {
-    justify-content: flex-start;
-    width: auto;
-    padding: 0.35rem 0;
-    border-radius: var(--radius-sharp);
-    border-bottom: 1px solid rgba(236, 234, 230, 0.45);
-    background: transparent;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-  }
-
-  /* Rely on full-bleed hero background only; skip extra image stack on small screens */
-  .hero__showcase {
-    display: none;
+    font-weight: 600;
+    letter-spacing: normal;
+    min-width: 0;
   }
 }
 
@@ -614,15 +574,15 @@ a:hover {
 }
 
 .btn--primary {
-  background: var(--color-elevated);
-  color: var(--color-ink);
-  border-color: var(--color-elevated);
+  background: var(--color-accent);
+  color: #f6fbf4;
+  border-color: var(--color-accent);
 }
 
 .btn--primary:hover {
-  background: transparent;
-  color: var(--color-hero-fg);
-  border-color: var(--color-hero-fg);
+  background: var(--color-accent-hover);
+  color: #fff;
+  border-color: var(--color-accent-hover);
 }
 
 .btn--ghost {
@@ -811,6 +771,11 @@ a:hover {
   .gallery__item figcaption {
     display: none;
   }
+
+  /* Hide last tile on small screens so the grid stays balanced */
+  .gallery__grid > .gallery__item:last-child {
+    display: none;
+  }
 }
 
 @media (min-width: 40rem) {
@@ -865,7 +830,7 @@ a:hover {
 }
 
 .area {
-  background: var(--color-surface);
+  background: #f4f3f0;
 }
 
 .area__layout {
@@ -898,7 +863,7 @@ a:hover {
 }
 
 .area__visual--map {
-  background: var(--color-border);
+  background: #d7d3cc;
 }
 
 .area__map-wrap {
@@ -928,15 +893,15 @@ a:hover {
 .area__address {
   margin-top: var(--space-md);
   padding: var(--space-md);
-  background: var(--color-bg);
+  background: #fcfbf8;
   border-radius: var(--radius-sharp);
-  border: 1px solid var(--color-border);
+  border: 1px solid #d4d0c9;
   border-left: 5px solid var(--color-ink);
 }
 
 .contact {
-  background: var(--color-surface);
-  border-top: 1px solid var(--color-border);
+  background: #f7f6f3;
+  border-top: 1px solid #d8d4cc;
 }
 
 .contact__layout {
@@ -956,8 +921,8 @@ a:hover {
 }
 
 .contact__social-panel {
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
+  background: #fcfbf8;
+  border: 1px solid #d8d4cc;
   border-left: 5px solid var(--color-ink);
   padding: var(--space-lg) var(--space-md);
   max-width: 26rem;
